@@ -1,4 +1,3 @@
 var readlineSync = require('readline-sync');
 
-console.log('Olá mundo.');
-f
+console.log('Olá mundo. ');

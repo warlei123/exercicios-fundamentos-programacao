@@ -1,34 +1,48 @@
 var readlineSync = require('readline-sync');
 
 function calculaProgressaoGeometrica(numero) {
-    var result = 1;
+    var resultado = 1;
 
     for (i = 2; i <= numero; i++) {
-        result *= i;
+        resultado *= i;
     }
-    return result;
+    return resultado;
 }
 
 function calculaProgressaoAritmetica(numero) {
+    var resultado = 1;
+
+    for (i = 2; i <= numero; i++) {
+        resultado += i;
+    }
+    return resultado;
 
 }
 
-let textoInserido = readlineSync.question('Informe um numero: ');
-let numeroInserido = parseInt(numeroInserido);
+var textoInserido = readlineSync.question('Informe um numero: ');
+var numeroInserido = parseInt(textoInserido);
 
-var opcaoSelecionada = readlineSync.question('Digite "S" para soma, "F" para Fatorizacao :').toLowerCase();
 
-switch (opcaoSelecionada) {
-    case 's':
-        var progressaoAritmeticaNumeroInserido = (numeroInserido * (numeroInserido + 1) / 2);
-        // interpolacao
-        console.log('A soma é ' + progressaoAritmeticaNumeroInserido);
-    break;
-
-    case 'f':
-        console.log('A fatorizacao é ' + factorial(vetorProgressaoGeometrica));
-    break;
-
-    default:
-        console.log('comando invalido');
+while (isNaN(numeroInserido)) {
+    var textoInserido = readlineSync.question('Isto não é um numero, por favor, Informe um numero valido: ');
+    var numeroInserido = parseInt(textoInserido);
 }
+
+var opcaoInserida = readlineSync.question('Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
+
+
+    while (opcaoInserida != 'a' && opcaoInserida != 'g') {
+        var opcaoInserida = readlineSync.question('Comando invalido, por favor, Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
+    }
+
+    switch (opcaoInserida) {
+        case 'a':
+            console.log(`A progressão aritimetica de ${numeroInserido} é: ${calculaProgressaoAritmetica(numeroInserido)}`);
+            break;
+
+        case 'g':
+            console.log(`A progressão geometrica de ${numeroInserido} é: ${calculaProgressaoGeometrica(numeroInserido)}`);
+            break;
+        default:
+            console.log('comando desconhecido, encerrando programa')
+    }

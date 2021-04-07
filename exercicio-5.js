@@ -1,7 +1,5 @@
 var readlineSync = require('readline-sync');
 
-// testar var e let para 
-
 function calculaMultiplosTres(numeroInserido) {
     let soma = 0;
 
@@ -26,15 +24,12 @@ function calculaMultiplosCinco(numeroInserido) {
 }
 
 var textoInserido = readlineSync.question('Informe um numero: ');
-// validar se é texto mesmo
 var numeroInserido = parseInt(textoInserido);
 
 while(isNaN(numeroInserido)){
     var textoInserido = readlineSync.question('Isto não é um numero, por favor, Informe um numero valido: ');
     var numeroInserido = parseInt(textoInserido);
-
 }
   
-// faz interpolacao de string
 console.log(`A soma dos multiplos de 3 é:  ${calculaMultiplosTres(numeroInserido)}`);
 console.log(`A soma dos multiplos de 5 é:  ${calculaMultiplosCinco(numeroInserido)}`);

@@ -1,19 +1,26 @@
-var readlinesync = require('readline-sync');
+var readlineSync = require('readline-sync');
 
 function geraNumeroAleatorio() {
-    return 355
+    return parseInt(Math.random() * 100)
 }
 
-let numeroAleatorio = geraNumeroAleatorio();
+var numeroAleatorio = geraNumeroAleatorio()
+let quantidadeTentativas = 0
 
-let textoInserido = readlineSync.question('Informe um numero: ');
-let numeroInserido = parseInt(textoInserido);
+while (true) {
+    var textoInserido = readlineSync.question('Dê o seu palpite: ')
+    var numeroInserido = parseInt(textoInserido)
+    //validar se é um numero inteiro válido
 
-let tentativas = 0;
+    if (numeroInserido == numeroAleatorio) {
+        // imprime quantas tentativas foram necessárias
+        console.log('Parabéns, você acertou')
 
-if (numeroInserido == numeroAleatorio) {
-    console.log("Parabéns, o jogo acabou.");
-}
-else {
+        // finaliza o while
+    }
 
+    if (numeroInserido > numeroAleatorio)
+        console.log('Palpite muito alto, tente novamente.')
+    else 
+        console.log('Palpite muito baixo, tente novamente.')
 }

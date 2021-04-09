@@ -1,13 +1,7 @@
-var readlineSync = require('readline-sync');
+var perguntasUsuario = require('./perguntasUsuario.js')
+const calculos = require('./calculos.js');
 
-var textoInserido = readlineSync.question('Informe um numero: ');
-var numeroInserido = parseInt(textoInserido);
+let numeroInserido = perguntasUsuario.perguntaNumero()
+var resultado = calculos.calculaProgressaoAritmetica(numeroInserido)
 
-while (isNaN(numeroInserido)) {
-    textoInserido = readlineSync.question('isto não é um numero, por favor, Informe um numero: ');
-    numeroInserido = parseInt(textoInserido);
-}
-
-var resultado = (numeroInserido * (numeroInserido + 1) / 2);
-
-console.log(`A soma de todos os numeros de 0 e ${numeroInserido} é : ${resultado}`)        
+console.log(`A soma de todos os numeros de 1 a ${numeroInserido} é : ${resultado}`)

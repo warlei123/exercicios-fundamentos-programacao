@@ -3,7 +3,9 @@ var readlineSync = require('readline-sync');
 module.exports = {
     calculaProgressaoGeometrica: calculaProgressaoGeometrica,
     calculaProgressaoAritmetica: calculaProgressaoAritmetica,
-    tabuada: tabuada
+    calcularMultiplosDeTres: calcularMultiplosDeTres,
+    calcularMultiplosDeCinco: calcularMultiplosDeCinco,
+    tabuada: tabuada,
 }
 
 function calculaProgressaoGeometrica(numero) {
@@ -22,6 +24,29 @@ function calculaProgressaoAritmetica(numero) {
         resultado += i;
 
     return resultado;
+}
+
+function calcularMultiplosDeTres(numero) {
+    let soma = 0;
+
+    for (let i = 0; i <= numero; i++) {
+        if (i % 3 === 0) 
+            soma += i;
+    }
+
+    return soma;
+}
+
+function calcularMultiplosDeCinco(numero) {
+    let soma = 0;
+
+    for (let i = 0; i <= numero; i++) {
+        if (i % 5 === 0) {
+            soma += i;
+        }
+    }
+
+    return soma;
 }
 
 function tabuada(numero) {

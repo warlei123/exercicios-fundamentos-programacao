@@ -1,26 +1,39 @@
 var readlineSync = require('readline-sync');
 
+var numeroTeto = 100
+
 function geraNumeroAleatorio() {
-    return parseInt(Math.random() * 100)
+    return parseInt(Math.random() * numeroTeto)
 }
 
 var numeroAleatorio = geraNumeroAleatorio()
-let quantidadeTentativas = 0
+let quantidadeTentativas = 1
+
+console.log(`estou pensando em um numero de 0 a ${numeroTeto}, tente adivinhar.`)
+
+// criar uma funcao para obter um número inteiro do usuário
 
 while (true) {
     var textoInserido = readlineSync.question('Dê o seu palpite: ')
     var numeroInserido = parseInt(textoInserido)
-    //validar se é um numero inteiro válido
+
+    if (isNaN(numeroInserido)) {
+        console.log('Isto nao é um nunero, tente novamente: ')
+        
+        continue
+    }
 
     if (numeroInserido == numeroAleatorio) {
-        // imprime quantas tentativas foram necessárias
-        console.log('Parabéns, você acertou')
+        console.log(`Parabéns, você acertou\nQuantidade de Tentativas: ${quantidadeTentativas}`)
 
-        // finaliza o while
+        break
     }
 
     if (numeroInserido > numeroAleatorio)
         console.log('Palpite muito alto, tente novamente.')
-    else 
+
+    else
         console.log('Palpite muito baixo, tente novamente.')
+
+    quantidadeTentativas++
 }

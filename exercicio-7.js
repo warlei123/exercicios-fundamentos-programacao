@@ -1,13 +1,9 @@
-var readlineSync = require('readline-sync');
+const perguntasUsuario = require('./perguntasUsuario.js');
+const calculos = require('./calculos.js');
 
-var textoInserido = readlineSync.question('Informe um numero: ');
-var numeroInserido = parseInt(textoInserido)
+var numeroInserido = perguntasUsuario.perguntaNumero()
+var tabuada = calculos.tabuada(numeroInserido)
 
-console.log(`A tabuada de ${numeroInserido} é: `)
+console.log(`A tabuada de ${numeroInserido} é: ${tabuada} `)
 
-for (let i = 1; i <= 12; i++) {
-    let resultado = i * numeroInserido;
 
-    
-    console.log(`${numeroInserido} * ${i} = ${resultado}`);
-}

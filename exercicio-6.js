@@ -1,48 +1,22 @@
-var readlineSync = require('readline-sync');
+const perguntasUsuario = require('./perguntasUsuario.js');
+const calculos = require('./calculos.js');
 
-function calculaProgressaoGeometrica(numero) {
-    var resultado = 1;
+var numeroInserido = perguntasUsuario.perguntaNumero()
+var opcaoInserida = perguntasUsuario.perguntaOpcaoCalculo()
 
-    for (i = 2; i <= numero; i++) {
-        resultado *= i;
-    }
-    return resultado;
-}
+switch (opcaoInserida) {
+    case 'a':
+        var progressaoAritmetica = calculos.calculaProgressaoAritmetica(numeroInserido)
+        console.log(`A progressão aritimetica de ${progressaoAritmetica}`);
 
-function calculaProgressaoAritmetica(numero) {
-    var resultado = 1;
+        break;
 
-    for (i = 2; i <= numero; i++) {
-        resultado += i;
-    }
-    return resultado;
+    case 'g':
+        var progressaoGeometrica = calculos.calculaProgressaoGeometrica(numeroInserido)
+        console.log(`A progressão geometrica de ${progressaoGeometrica}`);
 
-}
+        break;
 
-var textoInserido = readlineSync.question('Informe um numero: ');
-var numeroInserido = parseInt(textoInserido);
-
-
-while (isNaN(numeroInserido)) {
-    var textoInserido = readlineSync.question('Isto não é um numero, por favor, Informe um numero valido: ');
-    var numeroInserido = parseInt(textoInserido);
-}
-
-var opcaoInserida = readlineSync.question('Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
-
-
-    while (opcaoInserida != 'a' && opcaoInserida != 'g') {
-        var opcaoInserida = readlineSync.question('Comando invalido, por favor, Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
-    }
-
-    switch (opcaoInserida) {
-        case 'a':
-            console.log(`A progressão aritimetica de ${numeroInserido} é: ${calculaProgressaoAritmetica(numeroInserido)}`);
-            break;
-
-        case 'g':
-            console.log(`A progressão geometrica de ${numeroInserido} é: ${calculaProgressaoGeometrica(numeroInserido)}`);
-            break;
-        default:
-            console.log('comando desconhecido, encerrando programa')
+    default:
+        console.log('comando desconhecido, encerrando programa')
     }

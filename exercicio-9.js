@@ -1,6 +1,8 @@
-var readlineSync = require('readline-sync');
+var readlineSync = require('readline-sync')
+const calculos = require('./calculos.js')
+var perguntasUsuario = require('./perguntasUsuario.js')
 
-var numeroTeto = 100
+var numeroTeto = perguntasUsuario.perguntaNumero()
 
 function geraNumeroAleatorio() {
     return parseInt(Math.random() * numeroTeto)
@@ -10,8 +12,6 @@ var numeroAleatorio = geraNumeroAleatorio()
 let quantidadeTentativas = 1
 
 console.log(`estou pensando em um numero de 0 a ${numeroTeto}, tente adivinhar.`)
-
-// criar uma funcao para obter um número inteiro do usuário
 
 while (true) {
     var textoInserido = readlineSync.question('Dê o seu palpite: ')

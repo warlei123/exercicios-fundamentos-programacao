@@ -1,9 +1,7 @@
-const perguntasUsuario = require('./perguntasUsuario.js');
-const calculos = require('./calculos.js');
+const perguntasUsuario = require('./perguntasUsuario.js')
+const calculos = require('./calculos.js')
 
 var numeroInserido = perguntasUsuario.perguntaNumero()
-var tabuada = calculos.tabuada(numeroInserido)
+var tabuada = calculos.calcularTabuada(numeroInserido)
 
-console.log(`A tabuada de ${numeroInserido} é: ${tabuada} `)
-
-
+console.log(`A tabuada de ${numeroInserido} é:\n${tabuada}`)

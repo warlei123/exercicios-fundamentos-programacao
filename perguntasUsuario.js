@@ -3,6 +3,7 @@ var readlineSync = require('readline-sync');
 module.exports = {
     perguntaNumero: perguntaNumero,
     perguntaOpcaoCalculo: perguntaOpcaoCalculo,
+    perguntaNome: perguntaNome,
 }
 
 function perguntaNumero() {
@@ -20,9 +21,20 @@ function perguntaNumero() {
 function perguntaOpcaoCalculo(){
     var opcaoInserida = readlineSync.question('Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
 
-
     while (opcaoInserida != 'a' && opcaoInserida != 'g') {
-        var opcaoInserida = readlineSync.question('Comando invalido, por favor, Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
+        opcaoInserida = readlineSync.question('Comando invalido, por favor, Digite "A" para Progressão Aritimetica, "G" para Progressão Geometrica :').toLowerCase();
     }
     return opcaoInserida
 }
+
+function perguntaNome() {
+    var textoInserido = readlineSync.question('Informe seu nome: ');
+    var nomeInserido = textoInserido;
+    
+    while(!isNaN(nomeInserido)){
+        var textoInserido = readlineSync.question('Proibido usar numeros, por favor, informe seu nome: ');
+        var nomeInserido = textoInserido
+    }
+ 
+    return nomeInserido
+ }

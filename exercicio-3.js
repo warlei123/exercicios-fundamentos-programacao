@@ -1,10 +1,9 @@
-var readlineSync = require('readline-sync')
+const perguntasUsuario = require('./perguntasUsuario.js')
 
 var nomesPermitidos = ['alice', 'bob']
+var nomeInserido = perguntasUsuario.perguntaNome()
 
-var nomeUsuario = readlineSync.question('Qual é o seu nome? ').toLowerCase()
-
-if (nomesPermitidos.includes(nomeUsuario))
-    console.log(`Olá ${nomeUsuario}.`)
+if (nomesPermitidos.includes(nomeInserido))
+    console.log(`Olá ${nomeInserido}.`)
 else
     console.log('Olá.')

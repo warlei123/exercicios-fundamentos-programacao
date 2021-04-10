@@ -1,38 +1,9 @@
-var anoInserido = 2021
-var contagem = 20;
+const process = require('process')
+const perguntasUsuario = require('./perguntasUsuario.js')
+const calculos = require('./calculos.js')
 
-function leapyear(proximosAnos, contagemAtual) {
+console.log('Por favor, informe a quantidade de anos que vc deseja ver.')
 
-    proximosAnos = parseInt(proximosAnos);
+var quantidadeAnos = perguntasUsuario.perguntaNumero()
 
-    var contagemDesejada = contagemAtual;
-
-    proximosAnos++;
-
-    var anosBissextos = '';
-
-    while (contagemAtual > 0) {
-
-        if (proximosAnos % 4 === 0 && (proximosAnos % 100 !== 0 || (proximosAnos % 100 === 0 && proximosAnos % 400 === 0))) {
-
-            if (contagemAtual === 1) {
-
-                anosBissextos += proximosAnos + ".";
-            } else {
-
-                anosBissextos += proximosAnos + ", ";
-            }
-
-            proximosAnos++;
-
-            contagemAtual--;
-        } else {
-
-            proximosAnos++;
-        }
-    }
-
-    return "Os proximos " + contagemDesejada + " anos bissextos são: " + anosBissextos;
-}
-
-console.log(leapyear(anoInserido, contagem));
+console.log(`Os proximos ${calculos.calcularQuantidadeAnosDesejados(quantidadeAnos)} anos bissextos são:\n${calculos.calcularAnosBissextos(quantidadeAnos).join("\n")} `)

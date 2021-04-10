@@ -1,11 +1,5 @@
-var readlineSync = require('readline-sync');
+const perguntasUsuario = require('./perguntasUsuario.js')
 
-var nomeInserido = readlineSync.question('Qual é o seu nome? ');
-var numeroDigitado = !isNaN(parseInt(nomeInserido));
+var nomeInserido = perguntasUsuario.perguntaNome()
 
-
-while (nomeInserido == null || nomeInserido == '' || numeroDigitado == true);
-   console.log('Nenhum nome inserido, por favor, tente novamente '); 
-   
-
-console.log(`Olá ${nomeInserido}.`);
+console.log(`Olá ${nomeInserido}`)
